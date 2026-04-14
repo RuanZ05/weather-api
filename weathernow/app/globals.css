@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Céu “vivo” na abertura — animação leve, tema clima */
+@keyframes home-glow-drift {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.55;
+  }
+  33% {
+    transform: translate(12%, -6%) scale(1.08);
+    opacity: 0.75;
+  }
+  66% {
+    transform: translate(-8%, 4%) scale(1.03);
+    opacity: 0.65;
+  }
+}
+
+@keyframes home-shimmer {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
+}
+
+.home-hero-glow-a {
+  animation: home-glow-drift 18s ease-in-out infinite;
+}
+
+.home-hero-glow-b {
+  animation: home-glow-drift 22s ease-in-out infinite reverse;
+}
+
+.home-hero-shimmer {
+  background: linear-gradient(
+    110deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.06) 45%,
+    rgba(56, 189, 248, 0.12) 50%,
+    rgba(255, 255, 255, 0.05) 55%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  animation: home-shimmer 7s linear infinite;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
